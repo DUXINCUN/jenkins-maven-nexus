@@ -1,0 +1,13 @@
+---
+- hosts: gitlab 
+  gather_facts: F
+  tasks:
+    - name: Check hostname information
+      raw:  hostname
+    - name: Push app to the target hosts 
+      copy: src=../target/CurrencyConverter.war dest=/artifacts/ mode='+x'
+    - name: Start app
+      shell: 'echo test' 
+      register: msg
+    - name: post
+      debug: var=msg.stdout verbosity=0

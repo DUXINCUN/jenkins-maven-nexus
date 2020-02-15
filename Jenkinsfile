@@ -16,5 +16,13 @@ pipeline {
                 echo 'Build finished.'
             }
         }
+	stage('Deploy') {
+            agent any
+            steps {
+                 dir('ansible') {
+                 ansiblePlaybook(playbook:'playbook.yml',inventory:'hosts')
+                 }
+            }
+        }
     }
 }
