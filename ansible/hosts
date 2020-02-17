@@ -45,4 +45,6 @@
 ## My host list
 [gitlab]
 repo.labtest.com
+[test]
+test.labtest.com
 ## end of host list
