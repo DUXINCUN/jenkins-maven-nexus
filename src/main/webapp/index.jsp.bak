@@ -16,8 +16,7 @@
        <div class="input-group">
  	<span class="input-group-addon">Convert From :</span>
     <select ng-model="currencyIndex"  id="convertFrom" class="form-control col-md-8">
-        <%-- <option value="PHP">Philippine Peso (PHP)</option> --%>
-        <option value="RMB">Chinese Yuan (RMB)</option>
+        <option value="PHP">Philippine Peso (PHP)</option>
         <option value="JPY">Japanese Yen (JPY)</option>
         <option value="USD">US Dollar (USD)</option>
         <option value="INR">Indian Rupee (INR)</option>
@@ -31,8 +30,7 @@
  <div class="input-group">
  	<span class="input-group-addon">Convert To :</span>
     <select ng-model="currencyIndexTo" id="convertTo" class="form-control col-md-8">
-      <%--   <option value="PHP">Philippine Peso (PHP)</option>  --%>
-        <option value="RMB">Chinese Yuan (RMB)</option>
+         <option value="PHP">Philippine Peso (PHP)</option>
         <option value="JPY">Japanese Yen (JPY)</option>
         <option value="USD">US Dollar (USD)</option>
         <option value="INR">Indian Rupee (INR)</option>
