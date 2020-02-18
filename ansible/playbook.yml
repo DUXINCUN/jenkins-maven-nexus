@@ -5,7 +5,7 @@
     - name: Check hostname information
       raw:  hostname
     - name: Push app to the target hosts 
-      copy: src=../target/CurrencyConverter.war dest=/usr/local/myapps/ mode='+x'
+      copy: src=../target/CurrencyConverter.war dest=/usr/local/myapps/demo.war mode='+x'
     - name: Start app
       shell: 'echo test' 
       register: msg
