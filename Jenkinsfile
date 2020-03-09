@@ -3,21 +3,36 @@ pipeline {
     stages {
         stage('Build') {
     	    agent {
-        	docker {
-            		image 'maven:3-alpine'
+		docker {
+       			image 'maven:3-alpine'
             		args '-v /root/.m2:/root/.m2'
-        	}
+		}
     	    }
             steps {
                 sh 'mvn -B -DskipTests clean package'
             }
         }
-	stage('Deploy') {
+	stage('Nexus') {
             agent any
             steps {
-                 dir('ansible') {
-                 ansiblePlaybook(playbook:'playbook.yml',inventory:'hosts')
-                 }
+		nexusPublisher(nexusInstanceId: nexus3, 
+			nexusRepositoryId: 'maven-releases', 
+			packages: [ 
+			[
+			$class: 'MavenPackage',
+			mavenAssesList: [
+				[classifier: '',
+					extension: '',
+					filePath: './target/CurrencyConverter.war'
+				]
+			]
+			mavenCoordinate: [
+			artifactId: 'demo‘
+			groupId: ’sim',
+			packaging: 'war', version: '${BUILD_NUMBER}'
+			]
+			]  // end of packages
+		])				
             }
         }
     }
