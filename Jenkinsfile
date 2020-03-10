@@ -18,22 +18,21 @@ pipeline {
 		nexusPublisher(nexusInstanceId: nexus3, 
 			nexusRepositoryId: 'maven-releases', 
 			packages: [ 
-			[
-			class: 'MavenPackage',
-			mavenAssesList: [
-				[classifier: '',
+				class: 'MavenPackage',
+				mavenAssesList: [
+					[classifier: '',
 					extension: '',
 					filePath: './target/CurrencyConverter.war'
+					]
+				],
+				mavenCoordinate: [
+					artifactId: 'CurrencyConverter‘,
+					groupId: ’sim',
+					packaging: 'war', 
+					version: '${BUILD_NUMBER}'
 				]
-			],
-			mavenCoordinate: [
-				artifactId: 'CurrencyConverter‘,
-				groupId: ’sim',
-				packaging: 'war', 
-				version: '${BUILD_NUMBER}'
 			]
-			]  // end of packages
-		])				
+		)				
             }
         }
     }
