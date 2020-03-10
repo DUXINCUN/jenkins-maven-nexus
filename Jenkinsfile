@@ -15,13 +15,14 @@ pipeline {
 	stage('Nexus') {
             agent any
             steps {
-		nexusPublisher(nexusInstanceId: 'nexus3', 
-			nexusRepositoryId: 'maven-releases', 
+		nexusPublisher(
+			nexusInstanceId: 'nexus3', 
+			nexusRepositoryId: 'repository/maven-releases', 
 			packages: [ 
 				class: 'MavenPackage',
 				mavenAssesList: [
 					[classifier: '',
-					extension: '',
+					extension: 'war',
 					filePath: './target/CurrencyConverter.war'
 					]
 				],
