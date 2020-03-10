@@ -18,7 +18,7 @@ pipeline {
 		nexusPublisher(nexusInstanceId: nexus3, 
 			nexusRepositoryId: 'maven-releases', 
 			packages: [ 
-				class: 'MavenPackage',
+				$class: 'MavenPackage',
 				mavenAssesList: [
 					[classifier: '',
 					extension: '',
