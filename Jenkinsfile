@@ -27,9 +27,10 @@ pipeline {
 				]
 			]
 			mavenCoordinate: [
-			artifactId: 'demo‘
+			artifactId: 'CurrencyConverter‘,
 			groupId: ’sim',
-			packaging: 'war', version: '${BUILD_NUMBER}'
+			packaging: 'war', 
+			version: '${BUILD_NUMBER}'
 			]
 			]  // end of packages
 		])				
