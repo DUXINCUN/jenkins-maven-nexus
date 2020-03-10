@@ -31,7 +31,8 @@ pipeline {
 					groupId: 'sim',
 					packaging: 'war',
 					version: '1.0'
-				]
+				],
+				tagName: 'builder-docker'
 			]]
 		)				
             }
