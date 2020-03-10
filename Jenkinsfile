@@ -20,7 +20,7 @@ pipeline {
 			nexusRepositoryId: 'maven-releases', 
 			packages: [[ 
 				$class: 'MavenPackage',
-				mavenAssesList: [
+				mavenAssetList: [
 					[classifier: '',
 					extension: 'war',
 					filePath: './target/CurrencyConverter.war'
