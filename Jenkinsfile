@@ -15,7 +15,7 @@ pipeline {
 	stage('Nexus') {
             agent any
             steps {
-		nexusPublisher(nexusInstanceId: nexus3, 
+		nexusPublisher(nexusInstanceId: 'nexus3', 
 			nexusRepositoryId: 'maven-releases', 
 			packages: [ 
 				$class: 'MavenPackage',
